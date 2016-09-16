@@ -7,7 +7,7 @@
     <tr>
       <th>Message</th>
       <th>User</th>
-      <th colspan="6"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -19,8 +19,14 @@
         <td><%= link_to 'Show', tweet %></td>
         <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
         <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "upvote", like_tweet_path(tweet), method: :put %></td>
-        <td><%= link_to "downvote", dislike_tweet_path(tweet), method: :put %></td>
+        <td><% if current_user %>
+            <%= link_to like_tweet_path(tweet), method: :put do%>
+              <%= current_user.voted_as_when_voted_for(tweet) == true ? fa_icon("heart") : fa_icon("heart-o") %>
+            <% end %>
+            <% else %>
+            <%= fa_icon("heart-o") %>
+            <% end %>
+        </td>
         <td><%= tweet.score %></td>
       </tr>
     <% end %>

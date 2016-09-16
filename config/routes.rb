@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :tweets
+  resources :tweets do
+  member do
+    put "like", to: "tweets#upvote"
+    put "dislike", to: "tweets#downvote"
+    end
+  end
   root 'pages#feed'
 
   devise_for :users

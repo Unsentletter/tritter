@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use to auto-generate hashtag linkages in out tweets
+gem 'simple_hashtag'
 # Use font-awesome-rails to handle icon management
 gem "font-awesome-rails"
 # Use acts_as_votable to enable likes and follows for users

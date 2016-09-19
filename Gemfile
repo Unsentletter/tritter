@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use to implement ability to follow other peoples tweets
+gem "acts_as_follower"
 # Use to auto-generate hashtag linkages in out tweets
 gem 'simple_hashtag'
 # Use font-awesome-rails to handle icon management
